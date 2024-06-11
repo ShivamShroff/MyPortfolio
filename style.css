@@ -163,23 +163,28 @@ header .follow  a:hover{
     font-size:5rem;
 }
 
-.home{
-  display:flex;
-  align-items:center ;
+.home {
+  display: flex;
+  align-items: center;
   flex-wrap: wrap;
-  gap:6.5rem;
+  gap: 6.5rem;
+  justify-content: space-between;
 }
 
-.home .image{
-  flex:1 1 40rem;
+.home .image {
+  flex: 0 0 auto; /* Disable flex grow, shrink, and allow auto width */
+  width: 40%; /* Set a fixed width */
 }
-.home .image img{
-  height: 55%;
-width:60%;
+
+.home .image img {
+  max-width: 89%; /* Ensure the image doesn't overflow its container */
 }
-.home .content{
-  flex:1 1 40rem;
+
+.home .content {
+  flex: 1 1 auto; /* Allow flex grow, disable flex shrink, and allow auto width */
+  max-width: calc(60% - 6.5rem); /* Calculate the maximum width based on the remaining space after considering the gap */
 }
+
 .home .content .hi{
   font-size: 2rem;
   color: var(--main-color);
@@ -239,6 +244,19 @@ width:60%;
   }
 
 }
+
+.alignTextProperly {
+  text-align: justify;
+  text-align-last: left; /* Ensures the last line is aligned to the left */
+}
+
+.alignTextProperly::after {
+  content: "";
+  display: inline-block;
+  width: 100%;
+}
+
+
 .about .row-1{
   display: flex;
   flex-wrap: wrap;
